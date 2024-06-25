@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>نظام إدارة الشقق</title>
+</head>
+<body>
+<main>
+  <h1 class="visually-hidden">Sidebars examples</h1>
+  <div class="row home">
+    <div class="col-md-9 order-md-2">
+      <nav class="navbar position-static navbar-dark bg-dark ps-3">
+        <button class="btn btn-outline-light d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">
+          <i class="fas fa-bars"></i>
+        </button>
+        <button class="btn btn-outline-light logout" *ngIf="isAuthenticated" (click)="logout()">تسجيل خروج</button>
+      </nav>
+      
+      <div class="home-content">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+    <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark col-md-3 order-md-1 menu d-none d-md-flex">
+      <span class="fs-4">نظام إدارة الشقق</span>
+      <hr>
+      <ul class="nav nav-pills flex-column mb-auto pe-0">
+        <li class="nav-item">
+          <a routerLinkActive="active" href="AddAparment" class="nav-link text-white active" aria-current="page">
+            <i class="fas fa-home"></i>
+            اضافه شقه
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLinkActive="active" href="AparmentSearch" class="nav-link text-white">
+            <i class="fas fa-search"></i>
+            البحث عن الشقق
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLinkActive="active" href="AddSystemType" class="nav-link text-white">
+            <i class="fas fa-plus"></i>
+            اضافه صنف جديد
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLinkActive="active" href="TypeSearch" class="nav-link text-white">
+            <i class="fas fa-search"></i>
+            البحث عن الاصناف
+          </a>
+        </li>
+      </ul>
+      <hr>
+    </div>
+    <div class="offcanvas offcanvas-start text-white bg-dark" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasMenuLabel">نظام إدارة الشقق</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="nav nav-pills flex-column mb-auto pe-0">
+          <li class="nav-item">
+            <a routerLinkActive="active" href="AddAparment" class="nav-link text-white active" aria-current="page">
+              <i class="fas fa-home"></i>
+              اضافه شقه
+            </a>
+          </li>
+          <li class="nav-item">
+            <a routerLinkActive="active" href="AparmentSearch" class="nav-link text-white">
+              <i class="fas fa-search"></i>
+              البحث عن الشقق
+            </a>
+          </li>
+          <li class="nav-item">
+            <a routerLinkActive="active" href="AddSystemType" class="nav-link text-white">
+              <i class="fas fa-plus"></i>
+              اضافه صنف جديد
+            </a>
+          </li>
+          <li class="nav-item">
+            <a routerLinkActive="active" href="TypeSearch" class="nav-link text-white">
+              <i class="fas fa-search"></i>
+              البحث عن الاصناف
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</main>
+</body>
+</html>

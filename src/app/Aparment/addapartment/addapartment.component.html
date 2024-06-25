@@ -1,0 +1,82 @@
+<body>
+<div class="card header" translate="yes" dir="rtl">
+  <div *ngIf="ifSaved" class="alert alert-success m-3" role="alert">
+    تم الحفظ بنجاح
+  </div>
+
+  <div *ngIf="errormsg" class="alert alert-danger m-3" role="alert">
+    من فضلك ادخل قيمة إلى الحقول
+  </div>
+
+  <div class="Payment-header">
+    <h1 class="add">اضافه الشقه</h1>
+  </div>
+  <hr />
+  <form [formGroup]="myform" (ngSubmit)="onsubmit()" class="contact-form">
+    <div class="form-container" id="form-container">
+      <div class="row">
+        <div class="col-md-12">
+          <input formControlName="apartmentCode" class="inputs" id="apartmentCode" name="apartmentCode" maxlength="50"
+            type="text" placeholder="من فضلك ادخل كود الشقه" />
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-12">
+          <input formControlName="locationApartment" class="inputs" id="locationApartment" name="locationApartment"
+            maxlength="120" type="text" placeholder="من فضلك ادخل عنوان الشقه" />
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-12">
+          <input formControlName="purchaseApartment" class="inputs" id="purchaseApartment" name="purchaseApartment"
+            maxlength="9" type="number" placeholder="من فضلك ادخل سعر الشقه" />
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-12">
+          <input formControlName="comments" class="inputs" id="comments" name="comments" maxlength="190" type="text"
+            placeholder="من فضلك ادخل ملاحظات" />
+        </div>
+      </div>
+      <br>
+      <h5 class="inputs">المساهمين</h5>
+      <br>
+      <div formArrayName="contributors">
+        <div *ngFor="let contributor of contributors.controls; let i = index" [formGroupName]="i" class="row">
+          <br>
+          <div class="row">
+            <div class="col-md-12">
+              <input formControlName="name" class="form-control inputs" placeholder="اسم المساهم" />
+            </div>
+          </div>
+            <br>
+          <div class="row">
+            <div class="col-md-12">
+              <input formControlName="amountInvested" class=" form-control inputs" type="number" placeholder="المبلغ المستثمر" />
+            </div>
+          </div>
+          <br>
+          <div class="col-md-12 ">
+            <button type="button" class="btn inputs btn-danger mt-3" (click)="removeContributor(i)">حذف مساهم</button>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <button type="button" class=" inputs btn btn-primary mt-3" (click)="addContributor()">اضافه مساهم</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="buttons">
+            <button class="btn btn-success mt-3" type="submit">حفظ</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+</body>

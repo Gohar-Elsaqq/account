@@ -1,0 +1,56 @@
+<div class="image">
+    <div class="container">
+        <form (ngSubmit)="onSubmit()" [formGroup]="loginForm" class="contact-form" dir="rtl">
+
+            <div class="row">
+                <div class="col-md-12 mb-3">
+                    <div class="input-group">
+                        <label class="form-label">اسم المستخدم</label>
+                        <input formControlName="userName" name="userName" type="text" class="form-control">
+                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                    </div>
+                    <div *ngIf="(formControls['userName'].invalid && formControls['userName'].touched) || validateAllForm"
+                        class="error-message">
+                        <div *ngIf="formControls['userName'].errors?.['required']" translate>
+                            مطلوب
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 mb-3">
+                    <div class="input-group" style="font-size: larger;">
+                        <label class="form-label">كلمة السر</label>
+                        <input formControlName="password" name="password" [type]="isShowPassword ? 'text' : 'password'"
+                            class="form-control">
+                        <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                        <button class="btn " type="button" (click)="togglePasswordVisibility()">
+                            <i [ngClass]="isShowPassword ? 'fa fa-eye-slash' : 'fa fa-eye'"></i>
+                        </button>
+                    </div>
+                    <div *ngIf="(formControls['password'].invalid && formControls['password'].touched) || validateAllForm"
+                        class="error-message">
+                        <div *ngIf="formControls['password'].errors?.['required']" translate>
+                            مطلوب
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <button icon="ui-icon-person" [disabled]="isDisabled" pButton type="submit"
+                        class="btn btn-primary">Login</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <p *ngIf="errormsg" class="error-message">Login failed. Please try again.</p>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>

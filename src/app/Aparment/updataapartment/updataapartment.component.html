@@ -1,0 +1,67 @@
+<div class="card header" translate="yes" dir="rtl">
+
+  <div *ngIf="ifSaved" class="alert alert-success m-3" role="alert">
+    تم الحفظ بنجاح
+  </div>
+
+  <div *ngIf="errormsg" class="alert alert-danger m-3" role="alert">
+    من فضلك ادخل قيمه الى الحقول
+  </div>
+
+  <div class="Payment-header">
+    <h1 class="add">تعديل الشقة</h1>
+  </div>
+  <hr />
+  <form [formGroup]="myform" (ngSubmit)="onsubmit()" class="contact-form">
+    <div class="form-container" id="form-container">
+      <div>
+        <br>
+        <div>
+          <label for="apartmentCode" class="inputs">كود الشقة:</label>
+          <input formControlName="apartmentCode" class="inputs" id="apartmentCode" name="apartmentCode" maxlength="50"
+            type="text" [(ngModel)]="this.data.apartmentCode" readonly  />
+        </div>
+        <br>
+        <div>
+          <input formControlName="apartmentCodeNew" class="inputs" id="apartmentCodeNew" name="apartmentCodeNew"
+            type="text" placeholder="من فضلك ادخل كود الشقة الجديد" />
+        </div>
+        <br>
+        <div>
+          <label for="locationApartment" class="inputs">موقع الشقة:</label>
+          <input formControlName="locationApartment" class="inputs" id="locationApartment" name="locationApartment"
+            maxlength="120" type="text" [(ngModel)]="this.data.locationApartment" />
+        </div>
+        <br>
+        <div>
+          <label for="purchaseApartment" class="inputs">سعر الشقة:</label>
+          <input formControlName="purchaseApartment" class="inputs" id="purchaseApartment" name="purchaseApartment"
+            maxlength="9" type="number" [(ngModel)]="this.data.purchaseApartment" />
+        </div>
+        <br>
+        <div>
+          <label for="expenses" class="inputs">مصروفات الشقة:</label>
+          <input formControlName="expenses" class="inputs" id="expenses" name="expenses" type="number"
+            [(ngModel)]="this.data.expenses"  readonly/>
+        </div>
+        <br>
+        <div>
+          <label for="amountApartmentSale" class="inputs">سعرالبيع:</label>
+          <input formControlName="amountApartmentSale" class="inputs" id="amountApartmentSale"
+            name="amountApartmentSale" maxlength="190" type="text" [(ngModel)]="this.data.amountApartmentSale" />
+        </div>
+        <br>
+        <div>
+          <label for="comments" class="inputs">الملاحظات:</label>
+          <input formControlName="comments" class="inputs" id="comments" name="comments" maxlength="190" type="text"
+            [(ngModel)]="this.data.comments" />
+        </div>
+      </div>
+      <div class="btnsave">
+        <div class="buttons">
+          <button class="btn btn-success m-3" type="submit">حفظ</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

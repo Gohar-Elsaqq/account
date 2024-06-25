@@ -1,0 +1,87 @@
+<div class="card header" translate="yes" dir="rtl">
+  <div *ngIf="ifSaved" class="alert alert-success m-3" role="alert">
+    تم الحذف بنجاح
+  </div>
+  <div *ngIf="errormsg" class="alert alert-danger m-3" role="alert">
+    حدث خطاء الرجاء حاول مره اخرى
+  </div>
+  <header class="inputs">
+    <h1>بحث عن شقه</h1>
+  </header>
+  <div class="form-container" id="form-container">
+    <main>
+      <form (ngSubmit)="getApartmentCode(apartmentCode)">
+        <input type="text" class="searchType" placeholder="ابحث عن شقه..." [(ngModel)]="apartmentCode" name="search"
+          (ngModelChange)="filterApartments()"><br><br>
+      </form>
+    </main>
+  </div>
+</div>
+<div class="filter-bar form-grid container" dir="rtl">
+  <div class="container">
+    <div class="row">
+      <div class="form-grid">
+        <ng-container *ngFor="let apartmentGroup of filteredApartments">
+          <div class="group-container">
+            <div class="apartment m-3">
+              <div class="form-group">
+                <div class="m-2 ms-3 p-3">
+                  <div class="row">
+                    <label class="form-control p-2 m-2 col-sm">كود الشقة: {{ apartmentGroup.apartmentCode }}</label>
+                    <label class="form-control p-2 m-2 col-sm">عنوان الشقة: {{ apartmentGroup.locationApartment
+                      }}</label>
+                  </div>
+                  <div class="row">
+                    <label class="form-control p-2 m-2 col-sm">سعر الشراء: {{ apartmentGroup.purchaseApartment
+                      }}</label>
+                    <label class="form-control p-2 m-2 col-sm">مصروفات الشقة: {{ apartmentGroup.expenses }}</label>
+                  </div>
+                  <div class="row">
+                    <label class="form-control p-2 m-2 col-sm">المجموع: {{ apartmentGroup.totalCost }}</label>
+                    <label class="form-control p-2 m-2 col-sm">سعر البيع: {{ apartmentGroup.amountApartmentSale
+                      }}</label>
+                  </div>
+                  <div class="row">
+                    <label class="form-control p-2 m-2 col-sm">الربح: {{ apartmentGroup.netOfApartment }}</label>
+                    <label class="form-control p-2 m-2 col-sm">تاريخ البيع: {{ apartmentGroup.saleDate |
+                      date:'yyyy-MM-dd' }}</label>
+                  </div>
+                  <label class="form-control p-2 m-2">ملاحظات: {{ apartmentGroup.comments }}</label>
+                  <h5>المساهمين</h5>
+                  <div class="w-100">
+                    <hr class="my-3" style="border-top: 3px solid blue;">
+                  </div>
+                  <div *ngFor="let contributor of apartmentGroup.contributors" class="row">
+                    <label class="form-control p-2 m-2 col-sm">اسم: {{ contributor.name }}</label>
+                    <label class="form-control p-2 m-2 col-sm">المبلغ: {{ contributor.amountInvested }}</label>
+                    <label class="form-control p-2 m-2 col-sm">المصروفات: {{ contributor.shareholdersExpenses |
+                      number:'1.2-2' }}</label>
+                    <label class="form-control p-2 m-2 col-sm">الربح: {{ contributor.shareholdersProfits |
+                      number:'1.2-2' }}</label>
+                    <label class="form-control p-2 m-2 col-sm">الصافى: {{ contributor.endData | number:'1.2-2'
+                      }}</label>
+                    <div class="w-100">
+                      <hr class="my-3" style="border-top: 3px solid blue;">
+                    </div>
+                  </div>
+                </div>
+                <div class="row p-2 d-flex align-items-center justify-content-center">
+                  <button class="col-sm-2 m-2 btn btn-primary" (click)="onSave(apartmentGroup.apartmentCode)">اضافه
+                    تفاصيل الشقه</button>
+                  <button class="col-sm-2 m-2 btn btn-secondary"
+                    (click)="onEdit(apartmentGroup.apartmentCode)">تعديل</button>
+                  <button class="col-sm-2 m-2 btn btn-danger"
+                    (click)="onDelete(apartmentGroup.apartmentCode)">حذف</button>
+                  <button class="col-sm-2 m-2 btn btn-info" (click)="onviwe(apartmentGroup.apartmentCode)">عرض تفاصيل
+                    الشقه</button>
+                  <button class="col-sm-2 m-2 btn btn-success" (click)="finel(apartmentGroup.apartmentCode)">السعر
+                    النهائى</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

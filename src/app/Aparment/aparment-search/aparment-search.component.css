@@ -1,0 +1,45 @@
+.card.header {
+  text-align: right;
+}
+
+.inputs h1 {
+  margin-bottom: 9px;
+  margin-right: 33%;
+
+}
+
+.form-container {
+  margin-bottom: 20px;
+  margin-right: 33%;
+
+}
+
+.search {
+  margin-bottom: 10px;
+  margin-right: 11%;
+}
+
+.searchType {
+  padding-right: 67px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.save span {
+  content: attr(data-text);
+}
+
+.apartment {
+  background-color: #f9f9f9;
+  padding: 12px;
+  border: 1px solid #f0c3c3;
+  border-radius: 14px;
+}
+
+
+.frame {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+}
+

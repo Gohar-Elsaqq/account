@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="header" translate="yes" dir="rtl">
+    <div *ngIf="ifSaved" class="alert alert-success m-3" role="alert">
+      تم الحفظ بنجاح
+    </div>
+    
+    <div *ngIf="errormsg" class="alert alert-danger m-3" role="alert">
+      من فضلك ادخل قيمه الى الحقول
+    </div>
+    <div class="Payment-header">
+      <h1 class="add">اضافه صنف</h1>
+    </div>
+    <hr />
+    <form [formGroup]="myform" (ngSubmit)="onsubmit()">
+      <div id="form-container">
+        <br>
+        <div class="d-flex w-100">
+          <input formControlName="lookupType" class="form-control d-flex align-items-center justify-content-center"
+            id="lookupType" name="lookupType" maxlength="50" type="text" placeholder="من فضلك ادخل صنف جديد" />
+        </div>
+
+
+        <div class="d-flex w-100 align-items-center justify-content-center m-3">
+          <button class="btn btn-success " type="submit">حفظ</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

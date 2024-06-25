@@ -1,0 +1,57 @@
+<div class="card header" translate="yes" dir="rtl">
+  <div *ngIf="ifSaved" class="alert alert-success m-3" role="alert">
+    تم الحفظ بنجاح
+  </div>
+
+  <div *ngIf="errormsg" class="alert alert-danger m-3" role="alert">
+    من فضلك ادخل قيمه الى الحقول
+  </div>
+  <div class="Payment-header">
+    <h1 class="add">اضافه تفاصيل الشقة</h1>
+  </div>
+  <hr />
+  <form [formGroup]="myform" (ngSubmit)="onsubmit()" class="contact-form">
+    <div class="form-container" id="form-container">
+
+      <div>
+        <select class="inputs" aria-label="Default select example" [formControl]="myform.controls['lookupType']">
+          <option value="" disabled selected>اختر الصنف</option>
+          <option *ngFor="let type of lookupType" [value]="type">{{ type }}</option>
+        </select>
+      </div>
+
+      <div>
+        <input formControlName="amount" class="inputs" id="amount" name="amount" type="number" placeholder="من فضلك ادخل سعر" />
+      </div>
+
+      <div>
+        <label class="form-check-label" for="flexRadioDefault1">
+          تشطيب
+        </label>
+        <div class="form-check">
+          <input class="form-check-input m-0 float-none" type="radio" id="flexRadioDefault1" [value]="true" formControlName="finishing" (change)="onRadioChange('finishing')">
+        </div>
+      </div>
+
+      <div>
+        <label class="form-check-label" for="flexRadioDefault2">
+          تأسيس
+        </label>
+        <div class="form-check">
+          <input class="form-check-input m-0 mb-4 float-none" type="radio" id="flexRadioDefault2" [value]="true" formControlName="establishing" (change)="onRadioChange('establishing')">
+        </div>
+      </div>
+
+      <div>
+        <input formControlName="comments" class="inputs" id="comments" name="comments" type="text" placeholder="من فضلك ادخل ملاحظات" />
+      </div>
+
+      <div class="btnsave">
+        <div class="buttons d-flex align-items-center m-3">
+          <button class="btn btn-success" type="submit">حفظ</button>
+        </div>
+      </div>
+
+    </div>
+  </form>
+</div>

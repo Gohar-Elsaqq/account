@@ -1,0 +1,32 @@
+<div class="card header" translate="yes" dir="rtl">
+  <div *ngIf="ifSaved" class="alert alert-success m-3" role="alert">
+    تم الحذف بنجاح
+  </div>
+  
+  <div *ngIf="errormsg" class="alert alert-danger m-3" role="alert">
+    حدث خطاء الرجاء حاول مره اخرى 
+  </div>
+  
+  <header class="inputs">
+    <h1>بحث عن الأصاف</h1>
+  </header>
+  
+  <div class="form-container" id="form-container">
+  </div>
+</div>
+
+<div dir="rtl">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let lookupTypes of systemType">
+    <div class="col-md-12 text-center">
+      <div class="card mb-3">
+        <div class="card-body">
+          <label class="label-large"> الصنف : {{ lookupTypes.lookupType }} </label>
+          <br>
+          <button class="btn btn-danger" (click)="onDelete(lookupTypes.lookupType)">حذف</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

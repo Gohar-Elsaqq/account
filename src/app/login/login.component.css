@@ -1,0 +1,86 @@
+/* container styling */
+.container {
+  width: 90%;
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: white; /* Add a background color to make the form stand out */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for better visibility */
+}
+
+h2 {
+  text-align: center;
+}
+
+.error {
+  color: red;
+  font-size: 0.75rem;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+}
+
+.input-group > .form-label {
+  flex: 0 0 auto;
+  margin-right: 10px; /* Adjust as needed for space between label and input */
+}
+
+.input-group > .form-control {
+  flex: 1 1 auto;
+  margin-right: 10px; /* Adjust as needed for space between input and icon */
+}
+
+.input-group > .input-group-text {
+  flex: 0 0 auto;
+}
+
+.input-group > .btn {
+  flex: 0 0 auto;
+  margin-left: 10px; /* Adjust as needed for space between icon and button */
+}
+
+.login {
+  padding: 17px;
+}
+
+.password {
+  margin-left: 9px;
+  margin-right: 7px;
+}
+
+.form-label {
+  margin-left: 13px;
+}
+
+/* Media Queries for smaller screens */
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .form-label, .password {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .login {
+    padding: 10px;
+  }
+}
+
+/* Image container styling */
+.image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../../assets/img/desktop-wallpaper-login-page-login.jpg');
+  background-size: cover;
+  background-position: center;
+}

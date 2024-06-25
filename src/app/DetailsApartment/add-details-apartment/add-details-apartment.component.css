@@ -1,0 +1,29 @@
+.form-check {
+    display: inline !important;
+    margin-right: 10px !important;
+}
+.form-container{
+    padding-right: 23px;
+}
+.btnsave{
+    margin-top: 13px;
+}
+.add{
+    color: #0b33d2;
+    margin-right: 37%;
+  }
+.inputs {
+    width: 60%;
+    color: rgb(36, 44, 159);
+    margin-bottom: 20px;
+    height: 34px;
+  }
+  .submitButton{
+    background-color: aqua;
+    width: 20%;
+    color: #01010624;
+    margin-right: 40%;
+  }
+  .inputs::placeholder {
+    color: rgb(9, 142, 224);
+  }
