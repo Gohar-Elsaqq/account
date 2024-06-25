@@ -1,3 +1,4 @@
+Amended to open on all screens, added errors, displayed apartments, added apartments, modified apartments, deleted, added screen for final dysfunction, added shareholders and knowledge cost of expenses and profits from each apartment
 # Account
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.5.
